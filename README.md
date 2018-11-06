@@ -103,7 +103,7 @@ This is known as an autokey cipher and while it has better statistical propertie
 There is no authentication mechanism and commands are accepted independent of device state (configured/unconfigured).
 
 Commands are formatted using JSON, for example:
-```
+```json
 { 
     "system": { 
         "get_sysinfo": {} 
@@ -112,7 +112,7 @@ Commands are formatted using JSON, for example:
 ```
 
 Commands can be nested, for example:
-```
+```json
 {
     "system": {
         "get_sysinfo": {}
