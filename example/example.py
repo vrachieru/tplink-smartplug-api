@@ -1,8 +1,8 @@
 import sys
 sys.path.append('../')
 
-from tplink_hs1xx import SmartPlug
-from tplink_hs1xx import COMMAND
+from tplink_smartplug import SmartPlug
+from tplink_smartplug import COMMAND
 
-plug = SmartPlug('192.168.1.11')
+plug = SmartPlug('192.168.1.104')
 plug.command(COMMAND['OFF'])
