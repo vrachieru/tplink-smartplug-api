@@ -244,12 +244,14 @@ class SmartPlug(object):
         if isinstance(cmd, dict):
             cmd = json.dumps(cmd)
 
+        sock = None
         try:
             sock = socket.create_connection((self.host, self.port), self.timeout)
             sock.send(self.encrypt(cmd))
             data = sock.recv(4096)
         finally:
-            sock.close()
+            if sock:
+                sock.close()
 
         response = self.decrypt(data[4:])
         response = json.loads(response)
