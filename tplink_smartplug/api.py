@@ -191,7 +191,7 @@ class SmartPlug(object):
         
         :param bool state: True to set led on, False to set led off
         '''
-        self.command('system', 'set_led_off', {'off': int(not state)})
+        self.command(('system', 'set_led_off', {'off': int(not state)}))
 
     @property
     def is_on(self):
