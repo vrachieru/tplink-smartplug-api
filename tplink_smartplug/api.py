@@ -162,7 +162,7 @@ class SmartPlug(object):
         :return: dict with latitude and longitude
         '''
         info = self.info
-        location_keys = ['latitude', 'longitude']
+        location_keys = ['latitude_i', 'longitude_i']
         return {key: info[key] for key in location_keys}
 
     @location.setter
@@ -173,7 +173,7 @@ class SmartPlug(object):
         :param float latitude: location latitude
         :param float longitude: location longitude
         '''
-        self.command(('system', 'set_dev_location', {'latitude': latitude, 'longitude': longitude}))
+        self.command(('system', 'set_dev_location', {'latitude_i': latitude, 'longitude_i': longitude}))
 
     @property
     def led(self):
