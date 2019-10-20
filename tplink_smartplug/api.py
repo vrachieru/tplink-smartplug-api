@@ -2,7 +2,7 @@ import json
 import socket
 import struct
 import datetime
-import time
+
 
 class SmartPlug(object):
 
