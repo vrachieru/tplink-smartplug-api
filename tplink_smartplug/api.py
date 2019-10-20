@@ -2,6 +2,7 @@ import json
 import socket
 import struct
 import datetime
+import time
 
 class SmartPlug(object):
 
@@ -201,6 +202,24 @@ class SmartPlug(object):
         :return: True if device is on, False otherwise
         '''
         return bool(self.info['relay_state'])
+
+    def emeter_stats(self, **kwargs):
+        '''
+        Get emeter statistics
+
+        :kwargs
+            :keyword month: month number
+            :keyword year: year
+
+        :return: emeter statistics
+        '''
+        if 'month' in kwargs and 'year' in kwargs:
+            command = self.command(('emeter', 'get_daystat', {'month': kwargs['month'], 'year': kwargs['year']}))
+        elif 'year' in kwargs:
+            command = self.command(('emeter', 'get_monthstat', {'year': kwargs['year']}))
+        else:
+            command = self.command(('emeter', 'get_realtime'))
+        return command
 
     def turn_on(self):
         '''
