@@ -3,6 +3,7 @@ import socket
 import struct
 import datetime
 
+
 class SmartPlug(object):
 
     def __init__(self, host, port=9999, timeout=5):
@@ -162,7 +163,7 @@ class SmartPlug(object):
         :return: dict with latitude and longitude
         '''
         info = self.info
-        location_keys = ['latitude', 'longitude']
+        location_keys = ['latitude_i', 'longitude_i']
         return {key: info[key] for key in location_keys}
 
     @location.setter
@@ -173,7 +174,7 @@ class SmartPlug(object):
         :param float latitude: location latitude
         :param float longitude: location longitude
         '''
-        self.command(('system', 'set_dev_location', {'latitude': latitude, 'longitude': longitude}))
+        self.command(('system', 'set_dev_location', {'latitude_i': latitude, 'longitude_i': longitude}))
 
     @property
     def led(self):
@@ -201,6 +202,24 @@ class SmartPlug(object):
         :return: True if device is on, False otherwise
         '''
         return bool(self.info['relay_state'])
+
+    def emeter_stats(self, **kwargs):
+        '''
+        Get emeter statistics
+
+        :kwargs
+            :keyword month: month number
+            :keyword year: year
+
+        :return: emeter statistics
+        '''
+        if 'month' in kwargs and 'year' in kwargs:
+            command = self.command(('emeter', 'get_daystat', {'month': kwargs['month'], 'year': kwargs['year']}))
+        elif 'year' in kwargs:
+            command = self.command(('emeter', 'get_monthstat', {'year': kwargs['year']}))
+        else:
+            command = self.command(('emeter', 'get_realtime'))
+        return command
 
     def turn_on(self):
         '''
