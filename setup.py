@@ -8,7 +8,7 @@ def readme():
 
 setup(
     name='tplink_smartplug',
-    version='1.1.0',
+    version='1.1.2',
     description='TP-Link HS1xx smart plug API wrapper',
     long_description=readme(),
     long_description_content_type='text/markdown',

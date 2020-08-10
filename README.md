@@ -2,7 +2,7 @@
     <img src="https://user-images.githubusercontent.com/5860071/48065298-f97e8400-e1d2-11e8-999c-1a84c25cac14.png" width="150px" border="0" />
     <br/>
     <a href="https://github.com/vrachieru/tplink-smartplug-api/releases/latest">
-        <img src="https://img.shields.io/badge/version-1.1.0-brightgreen.svg?style=flat-square" alt="Version">
+        <img src="https://img.shields.io/badge/version-1.1.2-brightgreen.svg?style=flat-square" alt="Version">
     </a>
     <a href="https://travis-ci.org/vrachieru/tplink-smartplug-api">
         <img src="https://img.shields.io/travis/vrachieru/tplink-smartplug-api.svg?style=flat-square" alt="Version">
